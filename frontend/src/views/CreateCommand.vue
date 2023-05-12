@@ -1,0 +1,80 @@
+<script>
+export default {
+  data() {
+    return {
+      formData: {
+        platform: "",
+        operating_system: "",
+        command: "",
+        description: "",
+      },
+      operatingSystems: ["Windows", "Mac Book Air", "Linux"],
+    };
+  },
+  methods: {
+    selectedOS({ target }) {
+      console.log(target.value);
+    },
+  },
+  created() {},
+};
+</script>
+
+<template>
+  <div class="add-category p-5">
+    <div class="card w-50 m-auto">
+      <div class="card-body">
+        <h5 class="card-title form-title text-center">Add Command</h5>
+
+        <!-- <div class="alert alert-success" role="alert">
+          Product updated successfully
+        </div> -->
+
+        <form>
+          <div class="mb-3">
+            <label class="form-label">Platform</label>
+            <input
+              type="text"
+              class="form-control p-2"
+              placeholder="Platform"
+              v-model="formData.platform"
+              autocomplete="true"
+            />
+          </div>
+          <select class="form-select p-2 mb-3" @change="selectedOS">
+            <option :selected="true">Select Operating System</option>
+            <option v-for="os in operatingSystems" :key="os" :value="os">
+              {{ os }}
+            </option>
+          </select>
+          <div class="mb-3">
+            <label class="form-label">Command</label>
+            <input
+              type="text"
+              class="form-control p-2"
+              placeholder="Command"
+              v-model="formData.command"
+              autocomplete="true"
+            />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Description</label>
+            <input
+              type="text"
+              class="form-control p-2"
+              placeholder="Description"
+              v-model="formData.description"
+              autocomplete="true"
+            />
+          </div>
+
+          <div class="text-center">
+            <button type="button" class="btn btn-dark">Add Command</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</template>
+
+<style scoped></style>
