@@ -1,14 +1,15 @@
-<template>
- <Home />
-</template>
-
 <script>
-import Home from './views/Home.vue'
+import Navigation from "./components/Navigation.vue";
 export default {
   components: {
-      Home
-  }
+    Navigation,
+  },
 };
 </script>
+
+<template>
+  <Navigation />
+  <router-view></router-view>
+</template>
 
 <style scoped></style>
