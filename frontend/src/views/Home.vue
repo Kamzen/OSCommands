@@ -1,69 +1,41 @@
-<template>
-    <div class="fc-view-container">
-        <Navigation />
-        <h4 class="p-chip-text">OS Commands</h4>
-        <div class="p-card">
-            <DataTable :value="products" tableStyle="min-width: 50rem">
-                <Column field="code" header="Code"></Column>
-                <Column field="name" header="Name"></Column>
-                <Column field="category" header="Category"></Column>
-                <Column field="quantity" header="Quantity"></Column>
-            </DataTable>
-        </div>
-    </div>
-</template>
 <script>
-
-import DataTable from 'primevue/datatable';
-import Column from 'primevue/column';
-import ColumnGroup from 'primevue/columngroup';
-import Row from 'primevue/row';
-import {ref} from "vue";
-import Card from "primevue/card";
-import Navigation from "../components/Navigation.vue";
+import { mapActions } from "pinia";
+import { useCommandStore } from "../store";
 
 export default {
-    components: {
-        Navigation,
-        DataTable,
-        Column,
-        ColumnGroup,
-        Row,
-        Card
-    },
-    data() {
-        return {
-            title: "Home",
-            products: ref()
-        };
-    },
-    created() {
-        this.products = [
-            {
-                code: 1,
-                name: 'Atchar',
-                category: 'Category',
-                quantity: 'Quantity'
-            },
-            {
-                code: 1,
-                name: 'Atchar',
-                category: 'Category',
-                quantity: 'Quantity'
-            },
-            {
-                code: 1,
-                name: 'Atchar',
-                category: 'Category',
-                quantity: 'Quantity'
-            }
-        ]
-    }
+  methods: {
+    ...mapActions(useCommandStore, { getAllCommands: "getAllCommands" }),
+  },
+  created() {
+    this.getAllCommands();
+  },
 };
 </script>
 
-<style scoped>
-.fc-view-container{
-    padding: 10px;
-}
-</style>
+<template>
+  <div class="p-5">
+    <h4 class="text-center">List of commands</h4>
+    <div class="card p-5">
+      <table class="table">
+        <thead class="table-dark">
+          <tr class="text-center">
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="text-center">
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</template>
+
+<style scoped></style>
