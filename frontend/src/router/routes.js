@@ -5,6 +5,7 @@
 
 import Home from "../views/Home.vue";
 import CreateCommand from "../views/CreateCommand.vue";
+import EditCommand from "../views/EditCommand.vue";
 
 const routes = [
   {
@@ -20,6 +21,11 @@ const routes = [
     path: "/create-command",
     name: "create-command",
     component: CreateCommand,
+  },
+  {
+    path: "/edit-command/:id",
+    name: "edit-command",
+    component: EditCommand,
   },
 ];
 
