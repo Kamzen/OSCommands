@@ -1,17 +1,26 @@
 // lazy loads components
-const page = (component) => {
-  return () => import(`./views/${component}`).then((m) => m.default || m);
-};
+// const page = (component) => {
+//   return () => import(`/@/views/${component}`);
+// };
+
+import Home from "../views/Home.vue";
+import CreateCommand from "../views/CreateCommand.vue";
 
 const routes = [
   {
     path: "/",
-    component: page("Home.vue")
+    redirect: { name: "home" },
   },
   {
-    path: "/windows-commands",
-    component: page("WPCommands.vue")
-  }
+    path: "/home",
+    name: "home",
+    component: Home,
+  },
+  {
+    path: "/create-command",
+    name: "create-command",
+    component: CreateCommand,
+  },
 ];
 
 export default routes;
