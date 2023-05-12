@@ -1,4 +1,6 @@
 <script>
+import { mapActions, mapState, mapStores } from "pinia";
+import { useCommandStore } from "../store";
 export default {
   data() {
     return {
@@ -11,9 +13,20 @@ export default {
       operatingSystems: ["Windows", "Mac Book Air", "Linux"],
     };
   },
+  computed: {
+    ...mapStores(useCommandStore),
+    ...mapState(useCommandStore, ["success"]),
+  },
   methods: {
     selectedOS({ target }) {
-      console.log(target.value);
+      this.formData = {
+        ...this.formData,
+        operating_system: target.value,
+      };
+    },
+    ...mapActions(useCommandStore, ["createCommand"]),
+    add() {
+      this.createCommand(this.formData);
     },
   },
   created() {},
@@ -26,9 +39,9 @@ export default {
       <div class="card-body">
         <h5 class="card-title form-title text-center">Add Command</h5>
 
-        <!-- <div class="alert alert-success" role="alert">
-          Product updated successfully
-        </div> -->
+        <div v-show="success" class="alert alert-success" role="alert">
+          Command updated successfully
+        </div>
 
         <form>
           <div class="mb-3">
@@ -69,7 +82,9 @@ export default {
           </div>
 
           <div class="text-center">
-            <button type="button" class="btn btn-dark">Add Command</button>
+            <button type="button" class="btn btn-dark" @click="add()">
+              Add Command
+            </button>
           </div>
         </form>
       </div>
