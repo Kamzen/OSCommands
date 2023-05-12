@@ -1,81 +1,36 @@
-<template>
-
-    <div class="flex">
-        <SideBar/>
-        <TabView class="tab">
-            <TabPanel header="List Of Commands">
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip
-                    ex ea commodo
-                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                    nulla
-                    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-                    anim
-                    id est laborum.
-                </p>
-            </TabPanel>
-            <TabPanel header="Create Command">
-                <p>
-                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
-                    totam
-                    rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
-                    explicabo. Nemo enim
-                    ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni
-                    dolores
-                    eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius
-                    modi.
-                </p>
-            </TabPanel>
-            <TabPanel header="Windows Commands">
-                <p>
-                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
-                    totam
-                    rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
-                    explicabo. Nemo enim
-                    ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni
-                    dolores
-                    eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius
-                    modi.
-                </p>
-            </TabPanel>
-            <TabPanel header="Linux Command">
-                <p>
-                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
-                    totam
-                    rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
-                    explicabo. Nemo enim
-                    ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni
-                    dolores
-                    eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius
-                    modi.
-                </p>
-            </TabPanel>
-        </TabView>
-    </div>
-</template>
-
 <script>
-import TabView from "primevue/tabview";
-import TabPanel from "primevue/tabpanel";
-import SideBar from "./SideBar.vue";
-
-export default {
-    components: {
-        TabView,
-        TabPanel,
-        SideBar
-    }
-}
+export default {};
 </script>
 
-<style scoped>
-.flex {
-    display: flex;
-    flex-direction: row;
-    column-gap: 10px;
-}
+<template>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="">Commands Vue Laravel</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarTogglerDemo02"
+        aria-controls="navbarTogglerDemo02"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <router-link to="/" class="nav-link">All Commands</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/create-command" class="nav-link"
+              >Create Command</router-link
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</template>
 
-</style>
+<style scoped></style>
