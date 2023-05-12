@@ -25,5 +25,6 @@ Route::prefix('test')->group(function (){
         Route::post('/', "CommandController@createCommand");
         Route::put('/{command_id}', 'CommandController@updateCommand');
         Route::delete('/{command_id}', 'CommandController@deleteCommand');
+        Route::get('/{command_id}', 'CommandController@getCommandById');
     });
 });
