@@ -130,4 +130,23 @@ class CommandController extends Controller
             ]);
         }
     }
+
+    public function getCommandById(Request $request)
+    {
+        try {
+            $commandId = $request->route()->parameter('command_id');
+            $command = DB::table('commands')->where('id', $commandId)->first();
+
+            return response()->json([
+                'success' => true,
+                'command' => $command
+            ]);
+
+        } catch (Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Internal server error'
+            ]);
+        }
+    }
 }
