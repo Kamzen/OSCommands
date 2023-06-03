@@ -30,7 +30,12 @@ export default {
 <template>
   <div class="p-5">
     <h4 class="text-center">List of commands</h4>
-
+    <input
+      type="search"
+      class="form-control p-2 mb-3"
+      placeholder="Search..."
+      autocomplete="true"
+    />
     <div class="card p-5">
       <div v-if="success" class="alert alert-success" role="alert">
         Command deleted successfully
