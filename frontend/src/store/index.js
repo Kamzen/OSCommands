@@ -3,8 +3,8 @@ import axiosInstance from "../axiosInstance";
 
 export const useCommandStore = defineStore("command", {
   state: () => ({
-    commands: null,
-    command: null,
+    commands: [],
+    command: {},
     success: null,
   }),
   actions: {
@@ -53,6 +53,14 @@ export const useCommandStore = defineStore("command", {
       } catch (err) {
         console.log(err);
       }
+    },
+
+    search(value){
+      this.commands.filter(option => {
+        return (
+          option.platform.contains(value)
+        )
+      })
     },
     resetState() {
       this.success = false;
